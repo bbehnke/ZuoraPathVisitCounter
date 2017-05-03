@@ -1,0 +1,28 @@
+Zuora interview preliminary java test
+
+Author: Bradley Behnke
+
+Prompt: 
+Given a dataset that represents a user's navigation of a website, find the top N most frequently visited paths.
+
+Project source code: 
+https://github.com/bbehnke/ZuoraPathVisitCounter
+
+Preface: 
+This project will fulfill the given prompt. The code which fulfills the prompt is found in the UserNavigationUtil class.
+I also included a simple user data file parser and an application which utilizes the code from the prompt and the file
+parser to output meaningful results. N, from the prompt, is represented by resultSize. Overall I feel good about the
+implementation code, but the testing is not comprehensive.
+
+Source code notes:
+This project is a maven project and can be built/tested/installed with the standard maven commands.
+
+Jar command line expectation:
+java -jar zuora-1.0-SNAPSHOT.jar <resultSize> <pathSize> <path> <delimiter(optional)>
+
+
+Jar command line example:
+java -jar zuora-1.0-SNAPSHOT.jar 5 3 /Users/admin/Documents/Zuora/userdata.txt
+
+
+
