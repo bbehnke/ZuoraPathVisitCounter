@@ -74,7 +74,7 @@ public class UserNavigationFileProcessor {
     private static ProcessorArguments validateAndExtractArguments(String[] args) {
         // Validate and extract arguments
         if (args.length < 3 || args.length > 4) {
-            LOG.log(Level.SEVERE, "Invalid program arguments. " +
+            LOG.log(Level.SEVERE, "Invalid program arguments.\n" +
                     "Expected: java -jar pathfinder.jar <resultSize> <pathSize> <path> <delimiter(optional)>");
             return null;
         }
