@@ -48,7 +48,7 @@ public class UserNavigationUtilTest extends TestCase {
     public void testGetPathVisitCountsFromEntries() {
         System.out.println("Testing UserNavigationUtil.getPathVisitCountsFromEntries.");
 
-        List<PathVisitCount> pathVisitCounts = UserNavigationUtil.getPathVisitCountsFromEntries(userNavigationEntryList, 3);
+        List<PathVisitCount> pathVisitCounts = UserNavigationUtil.getPathVisitCountsFromEntries(userNavigationEntryList, 3, 5);
         assertNotNull(pathVisitCounts);
         assertEquals(3, pathVisitCounts.size());
         assertEquals(2, pathVisitCounts.get(0).visitCount());

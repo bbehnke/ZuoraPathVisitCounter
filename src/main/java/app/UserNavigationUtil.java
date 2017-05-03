@@ -30,12 +30,13 @@ public class UserNavigationUtil {
      *
      * @param userNavigationEntries the list of user navigation entries to process.
      * @param pathSize              the size of navigation paths to include in processing.
+     * @param resultSize            the max size of the results to return.
      * @return the list of path visit counts
      * @see List
      * in descending order from most visited to least visited.
      */
-    public static List<PathVisitCount> getPathVisitCountsFromEntries(List<UserNavigationEntry> userNavigationEntries, int pathSize) {
-        return getPathVisitCountsFromLists(getUserNavigationLists(userNavigationEntries), pathSize);
+    public static List<PathVisitCount> getPathVisitCountsFromEntries(List<UserNavigationEntry> userNavigationEntries, int pathSize, int resultSize) {
+        return getPathVisitCountsFromLists(getUserNavigationLists(userNavigationEntries), pathSize, resultSize);
     }
 
     /**
@@ -44,11 +45,12 @@ public class UserNavigationUtil {
      *
      * @param userNavigationLists the list of user navigation lists to process.
      * @param pathSize            the size of navigation paths to include in processing.
+     * @param resultSize          the max size of the results to return.
      * @return the list of path visit counts
      * @see List
      * in descending order from most visited to least visited.
      */
-    public static List<PathVisitCount> getPathVisitCountsFromLists(List<UserNavigationList> userNavigationLists, int pathSize) {
+    public static List<PathVisitCount> getPathVisitCountsFromLists(List<UserNavigationList> userNavigationLists, int pathSize, int resultSize) {
         final Map<String, PathVisitCount> pathVisitCountMap = new HashMap<>();
         userNavigationLists.stream()
                 .map(userNavigationList -> userNavigationList.getSequentialNavigationPaths(pathSize))
@@ -63,6 +65,7 @@ public class UserNavigationUtil {
                 });
         return pathVisitCountMap.values().stream()
                 .sorted((o1, o2) -> o2.visitCount() - o1.visitCount())
+                .limit(resultSize)
                 .collect(Collectors.toList());
     }
 

@@ -47,12 +47,12 @@ public class UserNavigationFileProcessor {
 
         // Load path visit counts.
         List<PathVisitCount> pathVisitCounts =
-                UserNavigationUtil.getPathVisitCountsFromEntries(userNavigationEntries, arguments.pathSize());
+                UserNavigationUtil.getPathVisitCountsFromEntries(userNavigationEntries, arguments.pathSize(), arguments.resultSize());
 
         // Build output string and print.
         StringBuilder output = new StringBuilder();
         output.append("\nVisit Count Results\n");
-        pathVisitCounts.stream().limit(arguments.resultSize()).forEach(pathVisitCount -> {
+        pathVisitCounts.forEach(pathVisitCount -> {
             output.append("Visited ");
             output.append(pathVisitCount.visitCount());
             output.append(" time(s)");
